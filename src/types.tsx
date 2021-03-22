@@ -32,6 +32,8 @@ export interface JitsiMeetAPIOptions {
 
     onLoad?: () => void;
 
+    onLeave?: () => void;
+
     invites?: {};
 
     devices?: {
@@ -52,60 +54,60 @@ export interface ConfigOptions {
 
     hosts?: {
 
-        /** 
-         * XMPP domain. 
+        /**
+         * XMPP domain.
          */
         domain?: string;
 
-        /** 
-         * When using authentication, domain for guest users. 
+        /**
+         * When using authentication, domain for guest users.
          */
         anonymousdomain?: string;
 
-        /** 
-         * Domain for authenticated users. Defaults to <domain>. 
+        /**
+         * Domain for authenticated users. Defaults to <domain>.
          */
         authdomain?: string;
 
-        /** 
+        /**
          * Jirecon recording component domain.
          */
         jirecon?: string;
 
         /**
-         * Call control component (Jigasi). 
+         * Call control component (Jigasi).
          */
         call_control?: string;
 
-        /** 
+        /**
          * Focus component domain. Defaults to focus.<domain>.
          */
         focus?: string;
 
-        /** 
+        /**
          * XMPP MUC domain. FIXME: use XEP-0030 to discover it.
          */
         muc?: string;
 
     };
 
-    /** 
+    /**
      * BOSH URL. FIXME: use XEP-0156 to discover it.
      */
     bosh?: string;
 
-    /** 
+    /**
      * Websocket URL
      */
     websocket?: string;
 
     /**
-     * The name of client node advertised in XEP-0115 'c' stanza 
+     * The name of client node advertised in XEP-0115 'c' stanza
      */
     clientNode?: string;
 
-    /** 
-     * The real JID of focus participant - can be overridden here 
+    /**
+     * The real JID of focus participant - can be overridden here
      */
     focusUserJid?: string;
 
@@ -114,36 +116,36 @@ export interface ConfigOptions {
 
     testing?: {
 
-        /** 
-         * Enables experimental simulcast support on Firefox. 
+        /**
+         * Enables experimental simulcast support on Firefox.
          */
         enableFirefoxSimulcast?: boolean;
 
-        /** 
-         * P2P test mode disables automatic switching to P2P when there are 2 participants in the conference. 
+        /**
+         * P2P test mode disables automatic switching to P2P when there are 2 participants in the conference.
          */
         p2pTestMode?: boolean;
 
-        /** 
-         * Enables the test specific features consumed by jitsi-meet-torture 
+        /**
+         * Enables the test specific features consumed by jitsi-meet-torture
          */
         testMode?: boolean;
 
-        /** 
-         * Disables the auto-play behavior of *all* newly created video element. 
+        /**
+         * Disables the auto-play behavior of *all* newly created video element.
          * This is useful when the client runs on a host with limited resources.
          */
         noAutoPlayVideo?: boolean;
 
     };
 
-    /** 
-     * Disables ICE/UDP by filtering out local and remote UDP candidates in signalling.  
+    /**
+     * Disables ICE/UDP by filtering out local and remote UDP candidates in signalling.
      */
     webrtcIceUdpDisable?: boolean;
 
-    /** 
-     * Disables ICE/TCP by filtering out local and remote TCP candidates in signalling.  
+    /**
+     * Disables ICE/TCP by filtering out local and remote TCP candidates in signalling.
      */
     webrtcIceTcpDisable?: boolean;
 
@@ -152,21 +154,21 @@ export interface ConfigOptions {
 
     // -- Audio
 
-    /** 
-     * Disable measuring of audio levels. 
+    /**
+     * Disable measuring of audio levels.
      */
     disableAudioLevels?: boolean;
 
     audioLevelsInterval?: number;
 
-    /** 
+    /**
      * Enabling this will run the lib-jitsi-meet no audio detection module which
      * will notify the user if the current selected microphone has no audio
-     * input and will suggest another valid device if one is present.  
+     * input and will suggest another valid device if one is present.
      */
     enableNoAudioDetection?: boolean;
 
-    /** 
+    /**
      * Enabling this will run the lib-jitsi-meet noise detection module which will
      * notify the user if there is noise, other than voice, coming from the current
      * selected microphone. The purpose it to let the user know that the input could
@@ -174,41 +176,41 @@ export interface ConfigOptions {
      */
     enableNoisyMicDetection?: boolean;
 
-    /** 
-     * Start the conference in audio only mode (no video is being received nor sent). 
+    /**
+     * Start the conference in audio only mode (no video is being received nor sent).
      */
     startAudioOnly?: boolean;
 
-    /** 
-     * Every participant after the Nth will start audio muted.  
+    /**
+     * Every participant after the Nth will start audio muted.
      */
     startAudioMuted?: number;
 
-    /** 
+    /**
      * Start calls with audio muted.Unlike the option above, this one is only applied locally.
-     * FIXME: having these 2 options is confusing. 
+     * FIXME: having these 2 options is confusing.
      */
     startWithAudioMuted?: boolean;
 
-    /** 
+    /**
      * Enabling it (with #params) will disable local audio output of remote
-     * participants and to enable it back a reload is needed.  
+     * participants and to enable it back a reload is needed.
      */
     startSilent?: boolean;
 
     // -- Video
 
-    /** 
+    /**
      * Sets the preferred resolution (height) for local video. Defaults to 720.
      */
     resolution?: number;
 
-    /** 
+    /**
      * w3c spec-compliant video constraints to use for video capture. Currently
      * used by browsers that return true from lib-jitsi-meet's
      * util#browser#usesNewGumFlow. The constraints are independent from
      * this config's resolution value. Defaults to requesting an ideal
-     * resolution of 720p.  
+     * resolution of 720p.
      */
     constraints?: {
         video?: {
@@ -221,73 +223,73 @@ export interface ConfigOptions {
     };
 
     /**
-     *  Enable / disable simulcast support. 
+     *  Enable / disable simulcast support.
      */
     disableSimulcast?: boolean;
 
-    /** 
-     * Enable / disable layer suspension. 
+    /**
+     * Enable / disable layer suspension.
      * If enabled, endpoints whose HD layers are not in use will be suspended (no longer sent) until they
-     * are requested again.  
+     * are requested again.
      */
     enableLayerSuspension?: boolean;
 
     /**
-     *  Every participant after the Nth will start video muted.  
+     *  Every participant after the Nth will start video muted.
      */
     startVideoMuted?: number;
 
-    /** 
-     * Start calls with video muted. 
+    /**
+     * Start calls with video muted.
      * Unlike the option above, this one is only applied locally.
      * FIXME: having these 2 options is confusing.
      */
     startWithVideoMuted?: boolean;
 
-    /** 
+    /**
      * If set to true, prefer to use the H.264 video codec (if supported).
      * Note that it's not recommended to do this because simulcast is not
      * supported when  using H.264. For 1-to-1 calls this setting is enabled by
-     * default and can be toggled in the p2p section. 
+     * default and can be toggled in the p2p section.
      */
     preferH264?: boolean;
 
-    /** 
+    /**
      * If set to true, disable H.264 video codec by stripping it out of the SDP.
      */
     disableH264?: boolean;
 
     // ---- Desktop sharing
 
-    /** 
+    /**
      * The ID of the jidesha extension for Chrome.
      */
     desktopSharingChromeExtId?: string;
 
-    /** 
+    /**
      * Whether desktop sharing should be disabled on Chrome.
      */
     desktopSharingChromeDisabled?: boolean;
 
-    /** 
+    /**
      * The media sources to use when using screen sharing with the Chrome
      * extension.
      * @example ['screen', 'window', 'tab']
      */
     desktopSharingChromeSources?: ('screen' | 'window' | 'tab')[];
 
-    /** 
-     * Required version of Chrome extension 
+    /**
+     * Required version of Chrome extension
      * @example '0.1'
      */
     desktopSharingChromeMinExtVersion?: string;
 
-    /** 
+    /**
      * Whether desktop sharing should be disabled on Firefox.
      */
     desktopSharingFirefoxDisabled?: boolean;
 
-    /** 
+    /**
      * Optional desktop sharing frame rate options. Default value: min:5, max:5.
      */
     desktopSharingFrameRate?: {
@@ -295,19 +297,19 @@ export interface ConfigOptions {
         max?: number;
     };
 
-    /** 
+    /**
      * Try to start calls with screen-sharing instead of camera video.
      */
     startScreenSharing?: boolean;
 
     // ---- Recording
 
-    /** 
+    /**
      * Whether to enable file recording or not.
      */
     fileRecordingsEnabled?: boolean;
 
-    /** 
+    /**
      * Enable the dropbox integration.
      */
     dropbox?: {
@@ -318,7 +320,7 @@ export interface ConfigOptions {
         appKey?: string;
 
         /**
-         * A URL to redirect the user to, after authenticating by default uses: 
+         * A URL to redirect the user to, after authenticating by default uses:
          * 'https://jitsi-meet.example.com/static/oauth.html'
          */
         redirectURI?: string;
@@ -327,13 +329,13 @@ export interface ConfigOptions {
 
     /**
      * When integrations like dropbox are enabled only that will be shown,
-     * by enabling fileRecordingsServiceEnabled, we show both the integrations 
+     * by enabling fileRecordingsServiceEnabled, we show both the integrations
      * and the generic recording service (its configuration and storage type
      * depends on jibri configuration)
      */
     fileRecordingsServiceEnabled?: boolean;
 
-    /** 
+    /**
      * Whether to show the possibility to share file recording with other people
      * (e.g. meeting participants), based on the actual implementation
      * on the backend.
@@ -345,36 +347,36 @@ export interface ConfigOptions {
      */
     liveStreamingEnabled?: boolean;
 
-    /** 
+    /**
      * Transcription (in interface_config, subtitles and buttons can be configured)
      */
     transcribingEnabled?: boolean;
 
-    /** 
+    /**
      * Enables automatic turning on captions when recording is started
      */
     autoCaptionOnRecord?: boolean;
 
     // ---- Misc
 
-    /** 
+    /**
      * Default value for the channel "last N" attribute. -1 for unlimited.
      */
     channelLastN?: number;
 
-    /** 
+    /**
      * Disables or enables RTX (RFC 4588) (defaults to false).
      */
     disableRtx?: boolean;
 
     /**
      * Disables or enables TCC (the default is in Jicofo and set to true)
-     * (draft-holmer-rmcat-transport-wide-cc-extensions-01). 
+     * (draft-holmer-rmcat-transport-wide-cc-extensions-01).
      * This setting affects congestion control, it practically enables send-side bandwidth estimations.
      */
     enableTcc?: boolean;
 
-    /** 
+    /**
      * Disables or enables REMB (the default is in Jicofo and set to false)
      * (draft-alvestrand-rmcat-remb-03). This setting affects congestion
      * control, it practically enables recv-side bandwidth estimations. When
@@ -383,7 +385,7 @@ export interface ConfigOptions {
      */
     enableRemb?: boolean;
 
-    /** 
+    /**
      * Defines the minimum number of participants to start a call (the default
      * is set in Jicofo and set to 2).
      */
@@ -394,12 +396,12 @@ export interface ConfigOptions {
      */
     useStunTurn?: boolean;
 
-    /** 
+    /**
      * Enable IPv6 support.
      */
     useIPv6?: boolean;
 
-    /** 
+    /**
      * Enables / disables a data communication channel with the Videobridge.
      * Values can be 'datachannel', 'websocket', true (treat it as
      * 'datachannel'), undefined (treat it as 'datachannel') and false (don't
@@ -409,7 +411,7 @@ export interface ConfigOptions {
 
     // ---- UI
 
-    /** 
+    /**
      * Use display name as XMPP nickname.
      */
     useNicks?: boolean;
@@ -419,7 +421,7 @@ export interface ConfigOptions {
      */
     requireDisplayName?: boolean;
 
-    /** 
+    /**
      * Whether to use a welcome page or not. In case it's false a random room
      * will be joined when no room is specified.
      */
@@ -448,7 +450,7 @@ export interface ConfigOptions {
      */
     enableUserRolesBasedOnToken?: boolean;
 
-    /** 
+    /**
      * Whether or not some features are checked based on token.
      */
     enableFeaturesBasedOnToken?: boolean;
@@ -463,13 +465,13 @@ export interface ConfigOptions {
      */
     roomPasswordNumberOfDigits?: number;
 
-    /** 
+    /**
      * Message to show the users. Example: 'The service will be down for
      * maintenance at 01:00 AM GMT,
      */
     noticeMessage?: string;
 
-    /** 
+    /**
      * Enables calendar integration, depends on googleApiApplicationClientID
      * and microsoftApiApplicationClientID
      */
@@ -477,7 +479,7 @@ export interface ConfigOptions {
 
     // ---- Stats
 
-    /** 
+    /**
      * Whether to enable stats collection or not in the TraceablePeerConnection.
      * This can be useful for debugging purposes (post-processing/analysis of
      * the webrtc stats) as it is done in the jitsi-meet-torture bandwidth
@@ -485,32 +487,32 @@ export interface ConfigOptions {
      */
     gatherStats?: boolean;
 
-    /** 
+    /**
      * The interval at which PeerConnection.getStats() is called.
      * Defaults to 10000
      */
     pcStatsInterval?: string;
 
-    /** 
+    /**
      * To enable sending statistics to callstats.io you must provide the
      * Application ID and Secret.
      */
     callStatsID?: string;
     callStatsSecret?: string;
 
-    /** 
+    /**
      * enables sending participants display name to callstats
      */
     enableDisplayNameInStats?: boolean;
 
-    /** 
+    /**
      * enables sending participants email if available to callstats and other analytics
      */
     enableEmailInStats?: boolean;
 
     // ---- Privacy
 
-    /** 
+    /**
      * If third party requests are disabled, no other server will be contacted.
      * This means avatars will be locally generated and callstats integration
      * will not function.
@@ -521,7 +523,7 @@ export interface ConfigOptions {
      * Peer-To-Peer mode: used (if enabled) when there are just 2 participants.
      */
     p2p?: {
-        /** 
+        /**
          * Enables peer to peer mode. When enabled the system will try to
          * establish a direct connection when there are exactly 2 participants
          * in the room. If that succeeds the conference will stop sending data
@@ -536,12 +538,12 @@ export interface ConfigOptions {
          */
         useStunTurn?: boolean;
 
-        /** 
+        /**
          * The STUN servers that will be used in the peer to peer connections
          */
         stunServers?: ({ urls: string })[];
 
-        /** 
+        /**
          * Sets the ICE transport policy for the p2p connection. At the time
          * of this writing the list of possible values are 'all' and 'relay',
          * but that is subject to change in the future. The enum is defined in
@@ -551,22 +553,22 @@ export interface ConfigOptions {
          */
         iceTransportPolicy?: string;
 
-        /** 
+        /**
          * If set to true, it will prefer to use H.264 for P2P calls (if H.264
          * is supported).
          */
         preferH264?: boolean;
 
-        /** 
+        /**
          * If set to true, disable H.264 video codec by stripping it out of the
          * SDP.
          */
         disableH264?: boolean;
 
-        /** 
+        /**
          * How long we're going to wait, before going back to P2P after the 3rd
          * participant has left the conference (to filter out page reload).
-         * 
+         *
          * @example 5
          */
         backToP2PDelay?: number;
@@ -580,12 +582,12 @@ export interface ConfigOptions {
          */
         googleAnalyticsTrackingId?: string;
 
-        /** 
+        /**
          * The Amplitude APP Key:
          */
         amplitudeAPPKey?: string;
 
-        /** 
+        /**
          * Array of script URLs to load as lib-jitsi-meet "analytics handlers"
          * @example
          *  [
@@ -597,7 +599,7 @@ export interface ConfigOptions {
 
     };
 
-    /** 
+    /**
      * Information about the jitsi-meet instance we are connecting to, including
      * the user region as seen by the server.
      * @example
@@ -609,21 +611,21 @@ export interface ConfigOptions {
      */
     deploymentInfo?: object;
 
-    /** 
+    /**
      * Decides whether the start/stop recording audio notifications should play on record.
      */
     disableRecordAudioNotification?: boolean;
 
-    /** 
+    /**
      * Information for the chrome extension banner
      */
     chromeExtensionBanner?: {
-        /** 
+        /**
          * The chrome extension to be installed address
          */
         url?: string;
 
-        /** 
+        /**
           * Extensions info which allows checking if they are installed or not
           */
         chromeExtensionsInfo?: ({ id: string; path: string })[];
@@ -634,7 +636,7 @@ export interface ConfigOptions {
 
     localRecording?: {
 
-        /** 
+        /**
          * Enables local recording.
          * Additionally, 'localrecording' (all lowercase) needs to be added to
          * TOOLBAR_BUTTONS in interface_config.js for the Local Recording
@@ -643,25 +645,25 @@ export interface ConfigOptions {
         enabled?: boolean;
 
 
-        /** 
+        /**
          * The recording format, can be one of 'ogg', 'flac' or 'wav'.
          */
         format?: 'ogg' | 'flac' | 'wav';
 
     };
 
-    /** 
+    /**
      * Options related to end-to-end (participant to participant) ping.
      */
     e2eping?: {
 
-        /** 
+        /**
          * The interval in milliseconds at which pings will be sent.
          * Defaults to 10000, set to <= 0 to disable.
          */
         pingInterval?: number;
 
-        /** 
+        /**
          * The interval in milliseconds at which analytics events
          * with the measured RTT will be sent. Defaults to 60000, set
          * to <= 0 to disable.
@@ -670,7 +672,7 @@ export interface ConfigOptions {
 
     };
 
-    /** 
+    /**
      * If set, will attempt to use the provided video input device label when
      * triggering a screenshare, instead of proceeding through the normal flow
      * for obtaining a desktop stream.
@@ -691,7 +693,7 @@ export interface ConfigOptions {
      */
     disableLocalVideoFlip?: boolean;
 
-    /** 
+    /**
      * Deployment specific URLs.
      */
     deploymentUrls?: {
@@ -702,7 +704,7 @@ export interface ConfigOptions {
          */
         userDocumentationURL?: string;
 
-        /** 
+        /**
          * If specified a 'Download our apps' button will be displayed in the overflow menu with a link
          * to the specified URL for an app download page.
          */
@@ -710,26 +712,26 @@ export interface ConfigOptions {
 
     };
 
-    /** 
+    /**
      * Options related to the remote participant menu.
      */
     remoteVideoMenu?: {
 
-        /** 
+        /**
          * If set to true the 'Kick out' button will be disabled.
          */
         disableKick?: boolean;
 
     };
 
-    /** 
+    /**
      * If set to true all muting operations of remote participants will be disabled.
      */
     disableRemoteMute?: boolean;
 
-    /** 
+    /**
      * List of undocumented settings used in jitsi-meet:
-     
+
      _immediateReloadThreshold
      autoRecord
      autoRecordToken
@@ -757,7 +759,7 @@ export interface ConfigOptions {
 
     /**
      * List of undocumented settings used in lib-jitsi-meet:
-     
+
      _peerConnStatusOutOfLastNTimeout
      _peerConnStatusRtcMuteTimeout
      abTesting
@@ -779,7 +781,7 @@ export interface ConfigOptions {
      startBitrate
      */
 
-    /** 
+    /**
      * Allow all above example options to include a trailing comma and
      * prevent fear when commenting out the last value.
      */
@@ -791,7 +793,7 @@ export interface ConfigOptions {
 export interface InterfaceConfigOptions {
 
     /**
-     * TO FIX: this needs to be handled from SASS variables. 
+     * TO FIX: this needs to be handled from SASS variables.
      * There are some methods allowing to use variables both in css and js.
      */
     DEFAULT_BACKGROUND?: string;
@@ -875,7 +877,7 @@ export interface InterfaceConfigOptions {
 
     SETTINGS_SECTIONS?: ('devices' | 'language' | 'moderator' | 'profile' | 'calendar')[];
 
-    /** 
+    /**
      * Determines how the video would fit the screen. 'both' would fit the whole
      * screen, 'height' would fit the original video height to the height of the
      * screen, 'width' would fit the original video width to the width of the
@@ -966,7 +968,7 @@ export interface InterfaceConfigOptions {
     /**
      * Maximum coeficient of the ratio of the large video to the visible area
      * after the large video is scaled to fit the window.
-     * 
+     *
      * @example 1.3
      *
      */
@@ -990,7 +992,7 @@ export interface InterfaceConfigOptions {
     /**
      * How long the connection indicator should remain displayed before hiding.
      * Used in conjunction with CONNECTION_INDICATOR_AUTOHIDE_ENABLED.
-     * 
+     *
      * @example: 5000
      */
     CONNECTION_INDICATOR_AUTO_HIDE_TIMEOUT?: number;
@@ -1014,13 +1016,13 @@ export interface InterfaceConfigOptions {
     /**
      *  Names of browsers which should show a warning stating the current browser
      *  has a suboptimal experience. Browsers which are not listed as optimal or
-     *  unsupported are considered suboptimal. 
+     *  unsupported are considered suboptimal.
      *  Valid values are: chrome, chromium, edge, electron, firefox, nwjs, opera, safari
      */
     OPTIMAL_BROWSERS?: ('chrome' | 'chromium' | 'edge' | 'electron' | 'firefox' | 'nwjs' | 'opera' | 'safari')[];
 
     /**
-     * Browsers, in addition to those which do not fully support WebRTC, 
+     * Browsers, in addition to those which do not fully support WebRTC,
      * that are not supported and should show the unsupported browser page.
      */
     UNSUPPORTED_BROWSERS?: ('chrome' | 'chromium' | 'edge' | 'electron' | 'firefox' | 'nwjs' | 'opera' | 'safari')[];
@@ -1100,75 +1102,80 @@ export interface InterfaceConfigOptions {
 
 export interface Props {
 
-    /** 
+    /**
      * Main container styles
      */
     containerStyle?: React.CSSProperties;
 
-    /** 
-     * Jitsi iframe container styles 
+    /**
+     * Jitsi iframe container styles
      */
     frameStyle?: React.CSSProperties;
 
-    /** 
-     * Component shown until JitsiMeet video conference is not started 
+    /**
+     * Component shown until JitsiMeet video conference is not started
      */
     loadingComponent?: React.ComponentType;
 
-    /** 
-     * Callback function invoked with JitsiMeetExternalAPI object when it is loaded 
+    /**
+     * Callback function invoked with JitsiMeetExternalAPI object when it is loaded
      */
     onAPILoad?: (api: JitsiMeetAPI) => void;
 
-    /** 
-     * Callback function invoked when JitsiMeet iframe is loaded 
+    /**
+     * Callback function invoked with JitsiMeetExternalAPI object when it is loaded
+     */
+    onLeave?: (b: boolean) => void;
+
+    /**
+     * Callback function invoked when JitsiMeet iframe is loaded
      */
     onIframeLoad?: () => void;
 
-    /** 
+    /**
      * Domain used to build the conference URL, 'meet.jit.si' for example.
      */
     domain?: string;
 
-    /** 
-     * Name of the room to join 
+    /**
+     * Name of the room to join
      */
     roomName?: string;
 
-    /** 
-     * Password to set for the meeting room 
+    /**
+     * Password to set for the meeting room
      */
     password?: string;
 
-    /** 
+    /**
      * Participant's name
      */
     displayName?: string;
 
-    // Options passed to JitsiMeetExternalAPI 
+    // Options passed to JitsiMeetExternalAPI
 
     /**
-     * Overrides for the default meeting options 
+     * Overrides for the default meeting options
      */
     config?: ConfigOptions;
 
-    /** 
-     * Overrides for default meeting interface options 
+    /**
+     * Overrides for default meeting interface options
      */
     interfaceConfig?: InterfaceConfigOptions;
 
     /**
-     * Boolean indicating if the server should be contacted using HTTP or HTTPS 
+     * Boolean indicating if the server should be contacted using HTTP or HTTPS
      */
     noSSL?: boolean;
 
-    /** 
+    /**
      * JWT token to pass to the domain
      */
     jwt?: string;
 
-    /** 
-     * A map containing information about the initial devices that will be used in the call. 
+    /**
+     * A map containing information about the initial devices that will be used in the call.
      */
     devices?: {
         audioInput?: string;
@@ -1176,7 +1183,7 @@ export interface Props {
         videoInput?: string;
     };
 
-    /** 
+    /**
      * Object containing information about the participant opening the meeting, such as email
      */
     userInfo?: {
