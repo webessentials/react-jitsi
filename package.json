@@ -1,11 +1,11 @@
 {
-  "version": "1.0.4",
+  "version": "1.1.0",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatteo/react-jitsi.git"
+    "url": "https://github.com/webessentials/react-jitsi.git"
   },
   "keywords": [
     "react",
