@@ -93,9 +93,9 @@ const Jitsi: React.FC<Props> = (props: Props) => {
     }, [])
 
     return (
-        <div id='react-jitsi-container' style={{ ...Default.ContainerStyle, ...containerStyle }}>
+        <div id="react-jitsi-container" style={{ ...Default.ContainerStyle, ...containerStyle }}>
             {loading && <Loader />}
-            <div id='react-jitsi-frame' style={{ ...Default.FrameStyle(loading), ...frameStyle }} ref={ref} />
+            <div id="react-jitsi-frame" style={{ ...Default.FrameStyle(loading), ...frameStyle }} ref={ref} />
         </div>
     )
 }

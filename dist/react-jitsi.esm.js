@@ -135,10 +135,10 @@ var Jitsi = function Jitsi(props) {
     });
   }, []);
   return React.createElement("div", {
-    id: 'react-jitsi-container',
+    id: "react-jitsi-container",
     style: _extends({}, ContainerStyle, containerStyle)
   }, loading && React.createElement(Loader$1, null), React.createElement("div", {
-    id: 'react-jitsi-frame',
+    id: "react-jitsi-frame",
     style: _extends({}, FrameStyle(loading), frameStyle),
     ref: ref
   }));
