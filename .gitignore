@@ -1,11 +1,7 @@
 *.log
 .DS_Store
 .cache
-.npmignore
-.eslintrc.js
-tsconfig.json
 node_modules
 test
 example
-package-lock.json
-yarn.lock
+dist
