@@ -37,7 +37,7 @@
   "peerDependencies": {
     "react": ">=16"
   },
-  "name": "react-jitsi",
+  "name": "@webessentials/react-jitsi",
   "description": "React and Typescript component to include Jitsi Meet with ease",
   "author": "mat.gia.dev@gmail.com",
   "module": "dist/react-jitsi.esm.js",

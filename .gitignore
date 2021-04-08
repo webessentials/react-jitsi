@@ -1,4 +1,11 @@
 *.log
 .DS_Store
-node_modules
 .cache
+.npmignore
+.eslintrc.js
+tsconfig.json
+node_modules
+test
+example
+package-lock.json
+yarn.lock
