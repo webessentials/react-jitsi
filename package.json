@@ -24,7 +24,8 @@
     "src"
   ],
   "engines": {
-    "node": ">=10"
+    "node": ">=10.0.0 <15.0.0",
+    "yarn": "1.22.x"
   },
   "scripts": {
     "start": "tsdx watch",
